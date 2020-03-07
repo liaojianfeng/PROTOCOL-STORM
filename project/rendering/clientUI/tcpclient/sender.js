@@ -352,26 +352,14 @@ $(document).ready(function () {
 
 
     function initTcpServerInfo(){
-        tcpServerInfoList = [{"ip": "127.0.0.1", "port": "12937", "describe": "本地测试   G7FS01环境"}, {
+        tcpServerInfoList = [{"ip": "127.0.0.1", "port": "32937", "describe": "本地测试   XXX测试环境"}, {
             "ip": "127.0.0.1",
-            "port": "12939",
-            "describe": "本地测试   IOT-Great"
-        }, {"ip": "127.0.0.1", "port": "2946", "describe": "本地测试   gnns环境"}, {
+            "port": "32937",
+            "describe": "本地测试   XXX"
+        }, {"ip": "127.0.0.1", "port": "22046", "describe": "本地测试   XXX1环境"}, {
             "ip": "127.0.0.1",
-            "port": "16531",
-            "describe": "本地测试   smart"
-        }, {"ip": "127.0.0.1", "port": "3214", "describe": "本地测试   great-device"}, {
-            "ip": "127.0.0.1",
-            "port": "12933",
-            "describe": "本地测试   FMS一体机"
-        }, {"ip": "127.0.0.1", "port": "2903", "describe": "本地测试   string协议小设备"}, {
-            "ip": "127.0.0.1",
-            "port": "12938",
-            "describe": "本地测试   g7fs01附件服务器"
-        }, {"ip": "172.22.34.226", "port": "12924", "describe": "测试环境   skyeye"}, {
-            "ip": "172.16.10.159",
-            "port": "3214",
-            "describe": "demo环境 great-deivce  内网"
+            "port": "22046",
+            "describe": "本地测试   XXXX"
         }];
 
         let initTcpServerInfoPath = exePath +'/initTcpServerInfo.json';
