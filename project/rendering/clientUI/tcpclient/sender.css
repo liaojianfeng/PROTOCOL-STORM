@@ -1,0 +1,7 @@
+.modal.fade.in{
+    top:70px;
+}
+#hexCol:hover{
+    background-color: #6edeef;
+    cursor: pointer;
+}

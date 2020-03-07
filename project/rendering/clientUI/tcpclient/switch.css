@@ -1,0 +1,54 @@
+.Switch {
+    padding: 0;
+}
+.Switch li {
+    clear: both;
+    line-height: 44px;
+    border-bottom: 1px solid #CCC;
+    list-style: none;
+}
+.Switch input {
+    display: none
+}
+.Switch label {
+    width: 52px;
+    background: #CCC;
+    height: 28px;
+    border-radius: 14px;
+    float: right;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+}
+.Switch label em {
+    width: 26px;
+    height: 26px;
+    float: left;
+    margin: 1px;
+    border-radius: 13px;
+    box-shadow: 2px 3px 8px rgba(0,0,0,.1);
+    background: #FFF;
+}
+.Switch input:checked + label {
+    background: #a4d714;
+}
+.Switch input:checked + label em {
+    float: right;
+}
+.Switch input:disabled + label {
+    opacity: 0.5
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+.intro {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  padding: 0 20px;
+  width: 100%;
+  text-align: center;
+}
+#particlesH1 {
+  text-transform: uppercase;
+  font-size: 85px;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+}
+#particlesH1::after {
+  content: '';
+  width: 180px;
+  display: block;
+  background: #fff;
+  height: 10px;
+  margin: 30px auto;
+  line-height: 1.1;
+}
+#particlesP1 {
+  margin: 0 0 0px 0;
+  font-size: 24px;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  #particlesH1 {
+    font-size: 70px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #particlesH1 {
+    font-size: 48px;
+  }
+  #particlesH1::after {
+    height: 8px;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .intro {
+    padding: 0 10px;
+  }
+  #particlesH1 {
+    font-size: 30px;
+  }
+  #particlesH1::after {
+    height: 6px;
+  }
+  #particlesP1 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #particlesH1 {
+    font-size: 28px;
+  }
+  #particlesH1::after {
+    height: 4px;
+  }
+}

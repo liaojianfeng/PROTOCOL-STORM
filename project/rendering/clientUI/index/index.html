@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id ="htmlHead">
+    <meta charset="UTF-8">
+    <title>PROTOCOL STORM</title>
+    <link rel="stylesheet" href="tab.css">
+    <script src="../../serverconfig/GlobalServerConfig.js"></script>
+    <script>window.$ = window.jQuery = require("../../common/jquery/jquery-3.4.1.min");</script>
+    <script src="../../common/jquery/jquery-3.4.1.min.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="import" href="../tcpclient/sender.html" id="sender"/>
+    <link rel="import" href="../syslog/syslog.html" id="syslog"/>
+    <link rel="import" href="../other/other.html" id="other"/>
+<!--    <link rel="import" href="../other/web.html" id="web"/>-->
+</head>
+
+<body id="allbody">
+<div class="tapWrap" id="tapwrap">
+    <ul class="myTabs myGroup"  style="padding-left: 15px;" id="tapUl">
+        <li class="talLi"><a href="#/sender" index="senderContainer" class="talLiA active">Sender</a></li>
+        <li class="talLi"><a href="#/syslog" index="sysLogContainer" class="talLiA">SysLog</a></li>
+        <li class="talLi"><a href="#/other" index="otherContainer" class="talLiA">About</a></li>
+<!--        <li><a href="#/web" index="webContainer">web</a></li>-->
+    </ul>
+</div>
+<div style="height: 100%;width: 100%; box-sizing: border-box;">
+    <div id="mainContainer" style="padding: 45px 0px 30px 0px;height: 100%;width: 100%;box-sizing: border-box;">
+        <script>
+            document.write(sender.import.body.innerHTML);
+            document.write(syslog.import.body.innerHTML);
+            document.write(other.import.body.innerHTML);
+        </script>
+    </div>
+</div>
+
+<div id="Tips" style="position:absolute;bottom:0;z-index: 30;width: 100%;background-color: #e5e5e5;height: 30px;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;Tips:
+</div>
+<script src="../tcpclient/sender.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type:"GET",
+            url: GET_TABINFO_LIST,
+            data : null,
+            dataType:"json",
+            success:function(tabInfoList){
+                initTabList(tabInfoList);
+            },
+            complete: function(XMLHttpRequest, textStatus){
+                //alert(XMLHttpRequest.responseText);
+                //alert(textStatus);
+            },
+            error:function(jqXHR){
+                console.log("Error: "+jqXHR.status);
+            }
+        });
+
+        /**
+         * 初始化选项卡UI组件
+         * @param tabInfoList
+         */
+        function initTabList(tabInfoList) {
+            for (let i = 0;i<tabInfoList.length; i++){
+                let tabInfo = tabInfoList[i];
+                let name = tabInfo.name;
+                let url = tabInfo.url;
+                let enable = tabInfo.enable;
+                if (enable){
+                    let tabListHtml = "<li  class='talLi'><a href='#/"+name+"' index='"+name+"Container' class='talLiA'>"+name+"</a></li>";
+                    $("#tapUl").append(tabListHtml);
+                    let webContentHtmlString = "" +
+                        "<div id=\""+name+"Container\" class=\"contentBox\" style=\"width: 100%;height: 100%;\">\n" +
+                        "    <iframe name=\"main_content\" src=\""+SERVER_ADDRESS+"service/"+url+".html\" scrolling=\"true\"\n" +
+                        "            style=\"margin: 0px; z-index: 1;height: 100%;\" marginheight=\"0\" marginwidth=\"0\" width=\"100%\" scrolling=\"true\"\n" +
+                        "            frameborder=\"0\"></iframe>";
+                    $("#mainContainer").append(webContentHtmlString);
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
